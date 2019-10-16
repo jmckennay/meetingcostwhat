@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,700&display=swap");
+body {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  font-weight: 300;
+  background: #1b1b1b;
+  color: white;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.container > span {
+  display: block;
+}
+
+.counter {
+  font-size: 5em;
+  font-weight: 100;
+}
+
+.timer {
+  font-size: 1.5em;
+  margin-bottom: .2em;
+}
+
+.compare {
+  font-size: .8em;
+  margin-bottom: .5em;
+  opacity: .7;
+  display: none;
+}
+
+button {
+  border: none;
+  background: white;
+  color: black;
+  padding: .5em 1.5em;
+  border-radius: 5px;
+  margin: .25em;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .2;
+  cursor: unset;
+}
+
+button.secondary {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+}
+
+label {
+  text-align: right;
+  width: 107px;
+  display: inline-block;
+}
+
+input {
+  font-size: 1em;
+  font-family: 'Roboto Mono', monospace;
+  width: 100px;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  margin-bottom: 1em;
+}
+
+input:disabled {
+  border-style: dashed;
+}
+/*# sourceMappingURL=style.css.map */
