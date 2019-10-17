@@ -65,8 +65,10 @@ body.dark input {
 }
 
 .wrapper {
-  width: 99vw;
-  height: 99vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
