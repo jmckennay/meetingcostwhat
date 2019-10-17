@@ -58,6 +58,8 @@ function start(resume){
     started = Date.now();
     calculateCost();
     let lastTimerUpdate = Date.now();
+    timer.html('for ' + moment(started).fromNow());
+    
     loop = 
         setInterval(function() {
             var elapsed = (Date.now() - started);
@@ -71,7 +73,6 @@ function start(resume){
             }
 
             if (Date.now() - lastTimerUpdate > 1000) {
-                console.log('update timer');
                 lastTimerUpdate = Date.now();
                 timer.html('for ' + moment(started).fromNow());
             }
