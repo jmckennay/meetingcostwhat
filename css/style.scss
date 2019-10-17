@@ -5,6 +5,13 @@
     --dark: #1b1b1b;
 }
 
+a {
+    color: var(--dark);
+    &:visited, &:active {
+        color: unset;
+    }
+}
+
 body {
     font-family: 'Roboto Mono', monospace;
     font-size: 16px;
@@ -16,6 +23,10 @@ body {
     &.dark {
         background: var(--dark);
         color: var(--light);
+
+        a {
+            color: var(--light);
+        }
 
         button {
             background: var(--light);
@@ -64,6 +75,16 @@ body {
     }
 }
 
+.adjustments {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 250ms ease;
+    a {
+        display: inline-block;
+        margin: 8px 8px;
+    }
+}
+
 .counter {
     font-size: 5em;
     font-weight:100;
@@ -83,7 +104,9 @@ body {
 }
 
 .settings {
-    //display: none;
+    transition: max-height 500ms ease;
+    overflow: hidden;
+    max-height: 200px;
 }
 
 .toggle{
@@ -117,6 +140,8 @@ button {
     position: relative;
     box-shadow: 0 0 0 0 var(--dark);
     z-index: 10;
+
+    &:focus { outline:0; }
 
     &.clicked::after {
         
@@ -186,6 +211,13 @@ input {
     border-radius: 5px;
     background: transparent;
     margin-bottom: 1em;
+    transition: all 250ms ease;
+
+    &:focus { 
+        outline:0;
+        border-width: 2px;
+        padding: 4px;
+    }
 
     &:disabled {
         border-style: dashed;

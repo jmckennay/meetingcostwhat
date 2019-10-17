@@ -20,7 +20,7 @@
                 <span class="title">This meeting has cost</span>
                 <span class="counter">$0.00</span>
                 <!-- <span class="compare">&nbsp;</span> -->
-                <span class="timer">for a few seconds</span>
+                <span class="timer">because it hasn't started</span>
                 <span class="rate">&nbsp;</span>
                 
                 <br />
@@ -31,9 +31,12 @@
                     <label>Attendees</label>
                     <input type="number" name="attendees" value="10" onChange="calculateCost()" onkeyup="calculateCost()"/>
                     <br />
-                    <button id="start" onClick="start()">Start</button><button class="secondary" id="stop" onClick="stop()" disabled>Stop</button>
-                    <a href="#" class="toggle" onClick="toggleDark()" title="Toggle Dark Mode">Toggle Dark Mode</a>
-                </div>               
+                </div>
+                <button id="start" onClick="start()">Start</button><button class="secondary" id="stop" onClick="stop()" disabled>Stop</button>
+                <div class="adjustments">
+                    <a href="#" onClick="addTime(1000*60*10)">+10m</a> <a href="#" onClick="addTime(1000*60*30)">+30m</a> <a href="#" onClick="addTime(1000*60*60)">+1h</a>
+                </div>
+                <a href="#" class="toggle" onClick="toggleDark()" title="Toggle Dark Mode">Toggle Dark Mode</a>
             </div>
         </div>
         

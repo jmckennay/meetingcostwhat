@@ -4,6 +4,14 @@
   --dark: #1b1b1b;
 }
 
+a {
+  color: var(--dark);
+}
+
+a:visited, a:active {
+  color: unset;
+}
+
 body {
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
@@ -16,6 +24,10 @@ body {
 
 body.dark {
   background: var(--dark);
+  color: var(--light);
+}
+
+body.dark a {
   color: var(--light);
 }
 
@@ -73,6 +85,18 @@ body.dark input {
   display: block;
 }
 
+.adjustments {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+.adjustments a {
+  display: inline-block;
+  margin: 8px 8px;
+}
+
 .counter {
   font-size: 5em;
   font-weight: 100;
@@ -90,6 +114,13 @@ body.dark input {
   margin-bottom: .5em;
   opacity: .7;
   display: none;
+}
+
+.settings {
+  -webkit-transition: max-height 500ms ease;
+  transition: max-height 500ms ease;
+  overflow: hidden;
+  max-height: 200px;
 }
 
 .toggle {
@@ -125,6 +156,10 @@ button {
   -webkit-box-shadow: 0 0 0 0 var(--dark);
           box-shadow: 0 0 0 0 var(--dark);
   z-index: 10;
+}
+
+button:focus {
+  outline: 0;
 }
 
 button.clicked::after {
@@ -213,6 +248,14 @@ input {
   border-radius: 5px;
   background: transparent;
   margin-bottom: 1em;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+input:focus {
+  outline: 0;
+  border-width: 2px;
+  padding: 4px;
 }
 
 input:disabled {

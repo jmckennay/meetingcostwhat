@@ -21,6 +21,7 @@ $(window).resize(function() {
 calculateCost();
 
 var loop;
+var started;
 
 moment.updateLocale('en', {
     relativeTime : {
@@ -34,6 +35,10 @@ $('button').on('click tap', function() {
     $(this).addClass('clicked');
 });
 
+function addTime(time) {
+    started = started - time;
+}
+
 function toggleDark() {
     $('body').toggleClass('dark');
 }
@@ -46,13 +51,16 @@ function calculateCost(){
 function start(resume){
     $('#start, [name="attendees"], [name="rate"]').attr("disabled", true);
     $('#stop').removeAttr("disabled");
+    $('.settings').css('max-height', 0);
+    $('.adjustments').css('max-height', '40px');
     counter.css('transform', 'scale(1)')
     clearInterval(loop);
-    var start = Date.now();
+    started = Date.now();
     calculateCost();
+    let lastTimerUpdate = Date.now();
     loop = 
         setInterval(function() {
-            var elapsed = (Date.now() - start);
+            var elapsed = (Date.now() - started);
             var cost =  elapsed * costPerMs;
 
             counter.html('$' + numeral(cost).format('0,0.00'));
@@ -62,8 +70,10 @@ function start(resume){
                 counter.css('transform', 'scale(' + (1 - (ratio - targetRatio)) + ')')
             }
 
-            if (elapsed % 1000 == 0) {
-                timer.html('for ' + moment(start).fromNow());
+            if (Date.now() - lastTimerUpdate > 1000) {
+                console.log('update timer');
+                lastTimerUpdate = Date.now();
+                timer.html('for ' + moment(started).fromNow());
             }
 
             // if (elapsed % 10000 == 0) {
@@ -82,4 +92,6 @@ function stop(){
     clearInterval(loop);
     $('#start, [name="attendees"], [name="rate"]').removeAttr("disabled");
     $('#stop').attr("disabled", true);
+    $('.settings').css('max-height', '');
+    $('.adjustments').css('max-height', '');
 }
